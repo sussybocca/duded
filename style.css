@@ -1,47 +1,81 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Full-page gradient background */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
 }
 
-.home-container, .login-container, .dashboard {
-  text-align: center;
-  background: #1c1c1c;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+/* Center the login box */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
 }
 
-input, textarea {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  width: 80%;
+/* Login box styling */
+.login-box {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 350px;
+    max-width: 90%;
 }
 
-button, .btn {
-  background: orangered;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+/* Inputs */
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
 }
 
-button:hover, .btn:hover {
-  background: #ff5722;
+/* Buttons */
+.btn {
+    display: inline-block;
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #ff3c00;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.ai-box {
-  margin-top: 20px;
+.btn:hover {
+    background-color: #ff5722;
+}
+
+/* Google button styling */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #444;
+    font-weight: bold;
+}
+
+.google-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Horizontal rule */
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.3);
 }
