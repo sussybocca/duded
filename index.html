@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Firebox</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>🔥 Firebox Login</title>
+    <!-- Correct CSS path -->
+    <link rel="stylesheet" href="../static/style.css">
+
+
+>
 </head>
 <body>
-  <div class="home-container">
-    <h1>🔥 Welcome to Firebox</h1>
-    <p>A place where chaos meets AI.</p>
-    <a href="login.html" class="btn">Login / Sign Up</a>
-  </div>
+    <div class="container">
+        <div class="login-box">
+            <h1>🔥 Firebox</h1>
+            <p>Login with Google or your account</p>
+
+            <!-- Placeholder for Google login -->
+            <button class="btn google-btn" onclick="googleLogin()">
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo">
+                Login with Google
+            </button>
+
+            <hr>
+
+            <!-- Regular form login -->
+            <form action="{{ url_for('login') }}" method="POST">
+                <input type="text" name="username" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder Google login function
+        function googleLogin() {
+            alert("Google login will appear here with Firebase integration.");
+        }
+    </script>
 </body>
 </html>
+
