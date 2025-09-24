@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-container, .login-container, .dashboard {
+  text-align: center;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+}
+
+input, textarea {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 80%;
+}
+
+button, .btn {
+  background: orangered;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  background: #ff5722;
+}
+
+.ai-box {
+  margin-top: 20px;
+}
