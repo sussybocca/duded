@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>🔥 Firebox Login</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Flat paths, no folders -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -23,7 +26,7 @@
             <hr>
 
             <!-- Regular login form -->
-            <form action="/login" method="POST">
+            <form action="#" method="POST">
                 <input type="text" name="username" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <button type="submit" class="btn">Login</button>
@@ -32,7 +35,7 @@
     </div>
 
     <script>
-        // Firebase config (replace with your project values)
+        // ✅ Replace with your Firebase config
         const firebaseConfig = {
             apiKey: "AIzaSyDuwfB4TUpLg4-zX6YJwD8JvR3I0p4sB3c",
             authDomain: "gg444-7fac7.firebaseapp.com",
@@ -42,24 +45,20 @@
             appId: "1:494789110558:web:YOUR_APP_ID"
         };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
-        // Custom Google login button
-        const googleLoginBtn = document.getElementById("googleLoginBtn");
-        googleLoginBtn.addEventListener("click", () => {
+        document.getElementById("googleLoginBtn").addEventListener("click", () => {
             const provider = new firebase.auth.GoogleAuthProvider();
             auth.signInWithPopup(provider)
                 .then((result) => {
                     const user = result.user;
                     alert(`Welcome ${user.displayName}!`);
-                    // You can now redirect to dashboard
-                    window.location.href = "/dashboard";
+                    window.location.href = "dashboard.html";
                 })
                 .catch((error) => {
                     console.error(error);
-                    alert("Login failed!");
+                    alert("Google login failed!");
                 });
         });
     </script>
