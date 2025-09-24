@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>🔥 Firebox Login</title>
-    <!-- Correct CSS path -->
-    <link rel="stylesheet" href="../static/style.css">
-
-
->
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,16 +14,16 @@
             <h1>🔥 Firebox</h1>
             <p>Login with Google or your account</p>
 
-            <!-- Placeholder for Google login -->
-            <button class="btn google-btn" onclick="googleLogin()">
+            <!-- Custom Google login button -->
+            <button class="btn google-btn" id="googleLoginBtn">
                 <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo">
                 Login with Google
             </button>
 
             <hr>
 
-            <!-- Regular form login -->
-            <form action="{{ url_for('login') }}" method="POST">
+            <!-- Regular login form -->
+            <form action="/login" method="POST">
                 <input type="text" name="username" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <button type="submit" class="btn">Login</button>
@@ -33,11 +32,36 @@
     </div>
 
     <script>
-        // Placeholder Google login function
-        function googleLogin() {
-            alert("Google login will appear here with Firebase integration.");
-        }
+        // Firebase config (replace with your project values)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuwfB4TUpLg4-zX6YJwD8JvR3I0p4sB3c",
+            authDomain: "gg444-7fac7.firebaseapp.com",
+            projectId: "gg444-7fac7",
+            storageBucket: "gg444-7fac7.appspot.com",
+            messagingSenderId: "494789110558",
+            appId: "1:494789110558:web:YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Custom Google login button
+        const googleLoginBtn = document.getElementById("googleLoginBtn");
+        googleLoginBtn.addEventListener("click", () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    alert(`Welcome ${user.displayName}!`);
+                    // You can now redirect to dashboard
+                    window.location.href = "/dashboard";
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Login failed!");
+                });
+        });
     </script>
 </body>
 </html>
-
